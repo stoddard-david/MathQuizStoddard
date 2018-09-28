@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MathQuizStoddard
 {
-  public partial class Form1 : Form
+  public partial class QuizForm : Form
   {
-    public Form1()
+    public QuizForm()
     {
       InitializeComponent();
     }
