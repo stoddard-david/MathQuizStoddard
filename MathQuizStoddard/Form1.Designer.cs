@@ -28,6 +28,7 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuizForm));
       this.timeLabel = new System.Windows.Forms.Label();
       this.timeLeftText = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
       this.dividedSign = new System.Windows.Forms.Label();
       this.dividedLeftLabel = new System.Windows.Forms.Label();
       this.startButton = new System.Windows.Forms.Button();
+      this.quizTimer = new System.Windows.Forms.Timer(this.components);
       ((System.ComponentModel.ISupportInitialize)(this.sum)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.difference)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.product)).BeginInit();
@@ -279,18 +281,23 @@
       // startButton
       // 
       this.startButton.AutoSize = true;
+      this.startButton.Cursor = System.Windows.Forms.Cursors.Hand;
       this.startButton.FlatAppearance.BorderSize = 2;
       this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.startButton.Font = new System.Drawing.Font("Verdana", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-      this.startButton.ForeColor = System.Drawing.SystemColors.Highlight;
+      this.startButton.ForeColor = System.Drawing.Color.CornflowerBlue;
       this.startButton.Location = new System.Drawing.Point(154, 295);
       this.startButton.Name = "startButton";
       this.startButton.Size = new System.Drawing.Size(176, 37);
       this.startButton.TabIndex = 1;
       this.startButton.Text = "Start the Quiz";
-      this.startButton.UseVisualStyleBackColor = false;
-      this.startButton.UseWaitCursor = true;
+      this.startButton.UseVisualStyleBackColor = true;
       this.startButton.Click += new System.EventHandler(this.startButton_Click);
+      // 
+      // quizTimer
+      // 
+      this.quizTimer.Interval = 1000;
+      this.quizTimer.Tick += new System.EventHandler(this.quizTimer_Tick);
       // 
       // QuizForm
       // 
@@ -364,6 +371,7 @@
     private System.Windows.Forms.Label dividedSign;
     private System.Windows.Forms.Label dividedLeftLabel;
     private System.Windows.Forms.Button startButton;
+    private System.Windows.Forms.Timer quizTimer;
   }
 }
 
