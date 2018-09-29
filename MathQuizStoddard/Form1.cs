@@ -113,5 +113,17 @@ namespace MathQuizStoddard
         startButton.BackColor = Color.WhiteSmoke;
       }
     }
+
+    private void answer_Enter(object sender, EventArgs e)
+    {
+      //Select the whole answer in the NumbericUpDown control
+      NumericUpDown answerBox = sender as NumericUpDown;
+
+      if(answerBox != null)
+      {
+        int lengthOfAnswer = answerBox.Value.ToString().Length;
+        answerBox.Select(0, lengthOfAnswer);
+      }
+    }
   }
 }
