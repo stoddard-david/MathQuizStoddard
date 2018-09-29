@@ -19,6 +19,10 @@ namespace MathQuizStoddard
     int addend1;
     int addend2;
 
+    //These integers store numbers for the addition problem
+    int minuend;
+    int subtrandhend;
+
     //Keep track of seconds
     int timeLeft;
 
@@ -41,6 +45,14 @@ namespace MathQuizStoddard
       //Set the sum to default 0 when started
       sum.Value = 0;
 
+      //Set the subtraction problem
+      minuend = randomizer.Next(1,101);
+      subtrandhend = randomizer.Next(1, minuend);
+
+      minusLeftLabel.Text = minuend.ToString();
+      minusRightLabel.Text = subtrandhend.ToString();
+      difference.Value = 0;
+
       //Set the timer color to black if it is still red
       timeLabel.ForeColor = Color.Black;
       
@@ -53,7 +65,8 @@ namespace MathQuizStoddard
     //Check the answers of the quiz
     private bool CheckTheAnswer()
     {
-      if (addend1 + addend2 == sum.Value)
+      if ((addend1 + addend2 == sum.Value)
+        && (minuend - subtrandhend == difference.Value))
       {
         return true;
       }
@@ -104,7 +117,9 @@ namespace MathQuizStoddard
         quizTimer.Stop();
         timeLabel.Text = "Time's up!";
         MessageBox.Show("You didn't finish in time", "Sorry!");
+
         sum.Value = addend1 + addend2;
+        difference.Value = minuend - subtrandhend;
 
         startButton.Enabled = true;
 
