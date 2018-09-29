@@ -290,6 +290,7 @@
       this.startButton.Text = "Start the Quiz";
       this.startButton.UseVisualStyleBackColor = false;
       this.startButton.UseWaitCursor = true;
+      this.startButton.Click += new System.EventHandler(this.startButton_Click);
       // 
       // QuizForm
       // 
