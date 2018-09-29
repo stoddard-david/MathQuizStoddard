@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -34,9 +35,14 @@ namespace MathQuizStoddard
     //Keep track of seconds
     int timeLeft;
 
+    //Sound to play
+    SoundPlayer successSound = new SoundPlayer(@"..\..\..\sound\chimes.wav");
+
     public QuizForm()
     {
       InitializeComponent();
+      DateTime today = DateTime.Today;
+      todayLabel.Text = today.ToString("dd MMMM yyyy");
     }
 
     //Start the quiz by filling in values and start the timer
@@ -100,6 +106,38 @@ namespace MathQuizStoddard
       else
       {
         return false;
+      }
+    }
+
+    private void check_Add(object sender, EventArgs e)
+    {
+      if(addend1 + addend2 == sum.Value)
+      {
+        successSound.Play();
+      }
+    }
+
+    private void check_Minus(object sender, EventArgs e)
+    {
+      if (minuend - subtrandhend == difference.Value)
+      {
+        successSound.Play();
+      }
+    }
+
+    private void check_Times(object sender, EventArgs e)
+    {
+      if (multiplicand * muliplier == product.Value)
+      {
+        successSound.Play();
+      }
+    }
+
+    private void check_Divide(object sender, EventArgs e)
+    {
+      if (dividend / divisor == quotient.Value)
+      {
+        successSound.Play();
       }
     }
 
