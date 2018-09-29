@@ -23,6 +23,14 @@ namespace MathQuizStoddard
     int minuend;
     int subtrandhend;
 
+    //These intergers store numbers for the multiplication
+    int multiplicand;
+    int muliplier;
+
+    //These intergers store numbers fro the division
+    int dividend;
+    int divisor;
+
     //Keep track of seconds
     int timeLeft;
 
@@ -53,6 +61,23 @@ namespace MathQuizStoddard
       minusRightLabel.Text = subtrandhend.ToString();
       difference.Value = 0;
 
+      //Set the multiplication problem
+      multiplicand = randomizer.Next(2, 11);
+      muliplier = randomizer.Next(2, 11);
+
+      timesLeftLabel.Text = multiplicand.ToString();
+      timesRightLabel.Text = muliplier.ToString();
+      product.Value = 0;
+
+      //Set the division problem
+      divisor = randomizer.Next(2, 11);
+      int temporaryQuotient = randomizer.Next(2, 11);
+      dividend = divisor * temporaryQuotient;
+
+      dividedLeftLabel.Text = dividend.ToString();
+      dividedRightLabel.Text = divisor.ToString();
+      quotient.Value = 0;
+
       //Set the timer color to black if it is still red
       timeLabel.ForeColor = Color.Black;
       
@@ -66,7 +91,9 @@ namespace MathQuizStoddard
     private bool CheckTheAnswer()
     {
       if ((addend1 + addend2 == sum.Value)
-        && (minuend - subtrandhend == difference.Value))
+        && (minuend - subtrandhend == difference.Value)
+        && (multiplicand * muliplier == product.Value)
+        && (dividend / divisor == quotient.Value))
       {
         return true;
       }
@@ -120,6 +147,8 @@ namespace MathQuizStoddard
 
         sum.Value = addend1 + addend2;
         difference.Value = minuend - subtrandhend;
+        product.Value = multiplicand* muliplier;
+        quotient.Value = dividend / divisor; 
 
         startButton.Enabled = true;
 
